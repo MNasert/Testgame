@@ -50,10 +50,11 @@ func shoot(inputs: Array[bool]):
 		$FirerateTimeout.start(self.firerate_cooldown)
 		return
 	var new_bullet = self.bullet.instantiate()
-	new_bullet.init(self.position, (get_global_mouse_position() - self.position).normalized(),
+	new_bullet.init(self.global_position, (get_global_mouse_position() - self.position).normalized(),
 					self.damage, self.pierce)
 	get_tree().get_root().add_child(new_bullet)
-
+	self.can_shoot = false
+	
 func _process(delta):
 	var inputs = self.get_inputs()
 	self.move(inputs, delta)

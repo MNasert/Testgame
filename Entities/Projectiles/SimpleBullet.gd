@@ -10,6 +10,7 @@ var movevec: Vector2
 var travel_dist: float = 0
 
 func init(pos: Vector2, direction: Vector2, dmg: int, pierce: int):
+	self.position = pos
 	if direction.x < 0:
 		$BulletAnim.flip_h = true
 	self.movevec = direction * self.speed
