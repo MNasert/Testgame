@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://8uhvo0elwfo0"]
+[gd_scene load_steps=3 format=3 uid="uid://8uhvo0elwfo0"]
+
+[ext_resource type="PackedScene" uid="uid://pgmrih0hmsj1" path="res://Utils/Scene_Change_Button.tscn" id="1_eeleq"]
+[ext_resource type="PackedScene" uid="uid://0a37e7s1aedc" path="res://Scenes/Levels/Level1.tscn" id="2_imwbg"]
 
 [node name="MainMenu" type="Node2D"]
+
+[node name="Scene" parent="." instance=ExtResource("1_eeleq")]
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 402.0
+offset_bottom = 34.0
+text = "Scene 1"
+target = ExtResource("2_imwbg")
+
+[connection signal="pressed" from="Scene" to="Scene" method="_on_pressed"]
