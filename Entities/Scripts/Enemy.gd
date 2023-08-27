@@ -6,7 +6,9 @@ var target: Node2D = null
 @export var hp: float = 0
 @export var damage: float = 0
 
-# Called when the node enters the scene tree for the first time.
+func init(pos: Vector2):
+	self.position = pos
+
 func _ready():
 	add_to_group("Enemies")
 

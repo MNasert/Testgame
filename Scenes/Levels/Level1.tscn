@@ -1,24 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://0a37e7s1aedc"]
+[gd_scene load_steps=4 format=3 uid="uid://0a37e7s1aedc"]
 
+[ext_resource type="Script" path="res://Scenes/Levels/LevelScripts/Level1.gd" id="1_okgox"]
 [ext_resource type="PackedScene" uid="uid://bbg3qm85gpqy8" path="res://Entities/Player.tscn" id="1_w8x3t"]
 [ext_resource type="PackedScene" uid="uid://cgf1iu2r6kttx" path="res://Entities/Enemy.tscn" id="2_l478s"]
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_okgox")
+enemy1 = ExtResource("2_l478s")
+wavesize = 5
+pause = 10.0
+increase_diff = 0.01
 
 [node name="Player" parent="." instance=ExtResource("1_w8x3t")]
-speed = 200.0
-firerate = 1.0
-damage = 1
-hp = 1
 
-[node name="Enemy" parent="." instance=ExtResource("2_l478s")]
-position = Vector2(-831, -47)
-speed = 50.0
-hp = 1.0
-damage = 1.0
+[node name="Wavetimer" type="Timer" parent="."]
 
-[node name="Enemy2" parent="." instance=ExtResource("2_l478s")]
-position = Vector2(-562, -605)
-speed = 50.0
-hp = 1.0
-damage = 1.0
+[connection signal="timeout" from="Wavetimer" to="." method="_on_wavetimer_timeout"]

@@ -9,6 +9,10 @@ height = 212.0
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_3jt56")
+speed = 200.0
+firerate = 5.0
+damage = 20
+hp = 100
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_qqk8g")
