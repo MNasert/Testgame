@@ -4,10 +4,12 @@ extends Node2D
 @export var firerate: float = 0  # shots/s
 @export var damage: int = 0
 @export var hp: int = 0
+@export var pierce: int = 0
+
 
 @export var bullet: PackedScene
 
-var can_shoot = false
+var can_shoot = true
 var firerate_cooldown = 1/firerate  # cooldown in s
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,8 +47,12 @@ func shoot(inputs: Array[bool]):
 	if not inputs[4]:
 		return
 	if not self.can_shoot:
+		$FirerateTimeout.start(self.firerate_cooldown)
 		return
 	var new_bullet = self.bullet.instantiate()
+	new_bullet.init(self.position, (get_global_mouse_position() - self.position).normalized(),
+					self.damage, self.pierce)
+	get_tree().get_root().add_child(new_bullet)
 
 func _process(delta):
 	var inputs = self.get_inputs()
@@ -57,9 +63,10 @@ func _process(delta):
 		for entity in get_tree().get_nodes_in_group("Enemies"):
 			entity.queue_free()
 		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
-		
-
 
 func _on_area_2d_area_entered(area):
 	var enemy = area.get_parent()
 	self.hp -= enemy.damage
+
+func _on_firerate_timeout_timeout():
+	self.can_shoot = true

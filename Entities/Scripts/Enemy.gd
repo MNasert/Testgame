@@ -21,3 +21,10 @@ func move(delta):
 
 func _process(delta):
 	self.move(delta)
+
+func _on_area_2d_area_entered(area):
+	var bullet = area.get_parent()
+	self.hp -= bullet.damage
+	bullet.pierce -= 1
+	if self.hp <= 0:
+		self.queue_free()
