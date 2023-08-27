@@ -1,3 +1,54 @@
-[gd_resource type="SpriteFrames" format=3 uid="uid://cnu5pfmyxieel"]
+[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://cnu5pfmyxieel"]
+
+[ext_resource type="Texture2D" uid="uid://084n06gyc775" path="res://Animations/frame0000.png" id="1_0065l"]
+[ext_resource type="Texture2D" uid="uid://big57caxgtfvl" path="res://Animations/frame0001.png" id="2_s0361"]
+[ext_resource type="Texture2D" uid="uid://cudrgowle0css" path="res://Animations/frame0002.png" id="3_uw4r3"]
+[ext_resource type="Texture2D" uid="uid://bdatkq3csd7up" path="res://Animations/frame0003.png" id="4_8y0vv"]
+[ext_resource type="Texture2D" uid="uid://bp4y512eeaose" path="res://Animations/frame0004.png" id="5_agq2a"]
+[ext_resource type="Texture2D" uid="uid://bi2mwwrpqqkj" path="res://Animations/frame0005.png" id="6_ynw5h"]
+[ext_resource type="Texture2D" uid="uid://bxiauy7tn4321" path="res://Animations/frame0006.png" id="7_frtul"]
+[ext_resource type="Texture2D" uid="uid://dpk4vjko0ejt3" path="res://Animations/frame0007.png" id="8_gu08n"]
+[ext_resource type="Texture2D" uid="uid://cslpbgojk2ubq" path="res://Animations/frame0008.png" id="9_woel2"]
+[ext_resource type="Texture2D" uid="uid://ccsfykf0gu0bk" path="res://Animations/frame0009.png" id="10_m72k8"]
+[ext_resource type="Texture2D" uid="uid://c6q12obdaofwn" path="res://Animations/frame0010.png" id="11_up8a6"]
 
 [resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0065l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s0361")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uw4r3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8y0vv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_agq2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ynw5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_frtul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gu08n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_woel2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_m72k8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_up8a6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]

@@ -10,6 +10,8 @@ var movevec: Vector2
 var travel_dist: float = 0
 
 func init(pos: Vector2, direction: Vector2, dmg: int, pierce: int):
+	if direction.x < 0:
+		$BulletAnim.flip_h = true
 	self.movevec = direction * self.speed
 	self.damage = dmg
 	self.pierce += pierce
@@ -24,5 +26,7 @@ func _process(delta):
 		self.queue_free()
 	if self.pierce < 0:
 		$Area2D/CollisionShape2D.disabled = true
-		# do animation
-		self.queue_free()
+		$BulletAnim.play("default")
+
+func _on_bullet_anim_animation_finished():
+	self.queue_free()
