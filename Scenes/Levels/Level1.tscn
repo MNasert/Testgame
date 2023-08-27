@@ -5,3 +5,7 @@
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_w8x3t")]
+speed = 200.0
+firerate = 1.0
+damage = 1
+health = 10

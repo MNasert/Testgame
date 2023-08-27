@@ -10,7 +10,7 @@ extends Node2D
 var firerate_cooldown = 1/firerate  # cooldown in s
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	add_to_group("Player")
 
 func get_inputs() -> Array[bool]:
 	var inputs: Array[bool] = [0, 0, 0, 0, 0]
