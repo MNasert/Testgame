@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbg3qm85gpqy8"]
+[gd_scene load_steps=5 format=3 uid="uid://bbg3qm85gpqy8"]
 
 [ext_resource type="Script" path="res://Entities/Scripts/Player.gd" id="1_3jt56"]
+[ext_resource type="PackedScene" uid="uid://dar37hjdj73vh" path="res://Entities/Projectiles/SimpleBullet.tscn" id="2_34huy"]
 [ext_resource type="Texture2D" uid="uid://d1ij8u3h8f5eb" path="res://Graphics/playa.png" id="2_qqk8g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t70og"]
@@ -9,6 +10,11 @@ height = 212.0
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_3jt56")
+speed = 200.0
+firerate = 5.0
+damage = 20
+hp = 100
+bullet = ExtResource("2_34huy")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_qqk8g")
@@ -16,9 +22,15 @@ texture = ExtResource("2_qqk8g")
 [node name="Weapon" type="AnimatedSprite2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(9, 12)
 shape = SubResource("CapsuleShape2D_t70og")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
+
+[node name="FirerateTimeout" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="FirerateTimeout" to="." method="_on_firerate_timeout_timeout"]
