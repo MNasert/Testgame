@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dl0465amyhj3s"
+=======
+uid="uid://c3jx1y3pwwdm7"
+>>>>>>> 4376cae8426030cf909b617c9a2225e2f045c708
 path="res://.godot/imported/emenimen.png-400e4b34081b3f58d95f3f9515d499a2.ctex"
 metadata={
 "vram_texture": false
