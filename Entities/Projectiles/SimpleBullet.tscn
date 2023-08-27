@@ -23,3 +23,4 @@ position = Vector2(-1, -1)
 shape = SubResource("CircleShape2D_yry4r")
 
 [connection signal="animation_finished" from="BulletAnim" to="." method="_on_bullet_anim_animation_finished"]
+[connection signal="animation_looped" from="BulletAnim" to="." method="_on_bullet_anim_animation_looped"]

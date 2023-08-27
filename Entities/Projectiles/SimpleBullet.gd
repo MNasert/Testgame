@@ -26,8 +26,12 @@ func _process(delta):
 	if self.travel_dist > self.range:
 		self.queue_free()
 	if self.hp <= 0:
+		self.set_process(false)
 		$Area2D/CollisionShape2D.disabled = true
 		$BulletAnim.play("default")
 
 func _on_bullet_anim_animation_finished():
+	self.queue_free()
+
+func _on_bullet_anim_animation_looped():
 	self.queue_free()
