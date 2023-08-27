@@ -3,7 +3,7 @@ extends Node2D
 @export var speed: float = 0
 @export var firerate: float = 0  # shots/s
 @export var damage: int = 0
-@export var health: int = 0
+@export var hp: int = 0
 
 @export var bullet: PackedScene
 
@@ -52,3 +52,14 @@ func _process(delta):
 	var inputs = self.get_inputs()
 	self.move(inputs, delta)
 	self.shoot(inputs)
+	if self.hp <= 0:
+		self.queue_free()
+		for entity in get_tree().get_nodes_in_group("Enemies"):
+			entity.queue_free()
+		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+		
+
+
+func _on_area_2d_area_entered(area):
+	var enemy = area.get_parent()
+	self.hp -= enemy.damage
