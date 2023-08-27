@@ -7,7 +7,7 @@ extends Node2D
 
 @export var bullet: PackedScene
 
-var can_shoot = true
+var can_shoot = false
 var firerate_cooldown = 1/firerate  # cooldown in s
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -13,6 +13,8 @@ health = 10
 
 [node name="Enemy" parent="." instance=ExtResource("2_l478s")]
 position = Vector2(-831, -47)
+speed = 50.0
 
 [node name="Enemy2" parent="." instance=ExtResource("2_l478s")]
 position = Vector2(-562, -605)
+speed = 50.0
