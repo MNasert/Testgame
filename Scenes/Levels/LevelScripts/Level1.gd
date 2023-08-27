@@ -18,5 +18,5 @@ func _on_wavetimer_timeout():
 		var pos = Vector2(randf_range(-3000, 3000), randf_range(-3000, 3000))
 		e.init(pos)
 		add_child(e)
-	self.wavesize *= (1 + self.increase_diff)
+	self.wavesize = self.wavesize + self.wavesize*(self.increase_diff)
 	$Wavetimer.start(pause)
