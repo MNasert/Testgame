@@ -11,8 +11,9 @@ wavesize = 5
 pause = 10.0
 increase_diff = 0.01
 
-[node name="Player" parent="." instance=ExtResource("1_w8x3t")]
-
 [node name="Wavetimer" type="Timer" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_w8x3t")]
+position = Vector2(-9, -14)
 
 [connection signal="timeout" from="Wavetimer" to="." method="_on_wavetimer_timeout"]
