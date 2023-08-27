@@ -1,6 +1,6 @@
 extends Node2D
 
-var target: Node2D
+var target: Node2D = null
 
 @export var speed: float = 0
 @export var hp: float = 0
@@ -8,9 +8,14 @@ var target: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var target = get_tree().get_nodes_in_group("Player")[0]
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
 	pass
+
+func move(delta):
+	if self.target == null:
+		self.target = get_tree().get_nodes_in_group("Player")[0]
+		return
+	var movevec = (self.target.position - self.position).normalized() * self.speed
+	self.position += self.speed * movevec * delta
+
+func _process(delta):
+	self.move(delta)

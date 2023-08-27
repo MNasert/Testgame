@@ -7,6 +7,7 @@ extends Node2D
 
 @export var bullet: PackedScene
 
+var can_shoot = true
 var firerate_cooldown = 1/firerate  # cooldown in s
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,19 +15,19 @@ func _ready():
 
 func get_inputs() -> Array[bool]:
 	var inputs: Array[bool] = [0, 0, 0, 0, 0]
-	if Input.is_action_just_pressed("up"):
+	if Input.is_action_pressed("up"):
 		inputs[0] = 1
-	if Input.is_action_just_pressed("down"):
+	if Input.is_action_pressed("down"):
 		inputs[1] = 1
-	if Input.is_action_just_pressed("left"):
+	if Input.is_action_pressed("left"):
 		inputs[2] = 1
-	if Input.is_action_just_pressed("right"):
+	if Input.is_action_pressed("right"):
 		inputs[3] = 1
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_pressed("shoot"):
 		inputs[4] = 1
 	return inputs
 
-func move(inputs: Array[bool]):
+func move(inputs: Array[bool], delta: float):
 	var movevec = Vector2(0, 0)
 	if inputs[0]:
 		movevec.y += -1
@@ -36,14 +37,18 @@ func move(inputs: Array[bool]):
 		movevec.x += -1
 		$PlayerSprite.flip_h = true
 	if inputs[3]:
-		movevec.y += 1
+		movevec.x += 1
 		$PlayerSprite.flip_h = false
-	self.position += movevec * self.speed
+	self.position += movevec * self.speed * delta
 
 func shoot(inputs: Array[bool]):
-	return
+	if not inputs[4]:
+		return
+	if not self.can_shoot:
+		return
+	var new_bullet = self.bullet.instantiate()
 
 func _process(delta):
 	var inputs = self.get_inputs()
-	self.move(inputs)
+	self.move(inputs, delta)
 	self.shoot(inputs)

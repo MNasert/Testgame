@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://0a37e7s1aedc"]
+[gd_scene load_steps=3 format=3 uid="uid://0a37e7s1aedc"]
 
 [ext_resource type="PackedScene" uid="uid://bbg3qm85gpqy8" path="res://Entities/Player.tscn" id="1_w8x3t"]
+[ext_resource type="PackedScene" uid="uid://cgf1iu2r6kttx" path="res://Entities/Enemy.tscn" id="2_l478s"]
 
 [node name="Level1" type="Node2D"]
 
@@ -9,3 +10,9 @@ speed = 200.0
 firerate = 1.0
 damage = 1
 health = 10
+
+[node name="Enemy" parent="." instance=ExtResource("2_l478s")]
+position = Vector2(-831, -47)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_l478s")]
+position = Vector2(-562, -605)
