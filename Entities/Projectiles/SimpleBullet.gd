@@ -2,7 +2,7 @@ extends Node2D
 
 @export var speed: float = 0
 var damage: int = 0
-var pierce: int = 0
+var pierce: int = 1
 
 @export var range: float = 0
 
@@ -12,7 +12,7 @@ var travel_dist: float = 0
 func init(pos: Vector2, direction: Vector2, dmg: int, pierce: int):
 	self.movevec = direction * self.speed
 	self.damage = dmg
-	self.pierce = pierce
+	self.pierce += pierce
 
 func _ready():
 	pass
