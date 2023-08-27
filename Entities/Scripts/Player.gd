@@ -34,8 +34,10 @@ func move(inputs: Array[bool]):
 		movevec.y += 1
 	if inputs[2]:
 		movevec.x += -1
+		$PlayerSprite.flip_h = true
 	if inputs[3]:
 		movevec.y += 1
+		$PlayerSprite.flip_h = false
 	self.position += movevec * self.speed
 
 func shoot(inputs: Array[bool]):

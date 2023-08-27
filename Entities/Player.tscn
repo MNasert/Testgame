@@ -1,14 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbg3qm85gpqy8"]
+[gd_scene load_steps=3 format=3 uid="uid://bbg3qm85gpqy8"]
 
 [ext_resource type="Script" path="res://Entities/Scripts/Player.gd" id="1_3jt56"]
+[ext_resource type="Texture2D" uid="uid://d1ij8u3h8f5eb" path="res://Graphics/playa.png" id="2_qqk8g"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_3jt56")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_qqk8g")
 
 [node name="Weapon" type="AnimatedSprite2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
